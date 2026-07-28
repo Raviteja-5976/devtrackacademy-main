@@ -1,6 +1,6 @@
 # Terms of Service
 
-*Last Updated: July 17, 2026*
+*Last Updated: July 28, 2026*
 
 Welcome to **DevTrack Academy** ("we," "our," "us," or the "Platform"). These Terms of Service ("Terms") govern your access to and use of our website, workshops, courses, educational content, and related services (collectively, the "Services").
 
@@ -34,7 +34,15 @@ Any legal action or proceeding arising under these Terms shall be subject to the
 
 ---
 
-## 4. Payments, Taxes (GST), & Refunds
+## 4. Communications, Newsletters, & Hiring Partner Referral Services
+
+1. **Promotional Communications:** By creating an account or subscribing to our updates, you consent to receive educational newsletters, platform announcements, and promotional emails from DevTrack Academy. You may opt out or unsubscribe at any time using the link provided in any email or by emailing `support@devtrackacademy.com`.
+2. **Hiring Partner Data Sharing:** If you choose to participate in our placement assistance program, submit your resume, or opt into recruiter matching, you give explicit consent for DevTrack Academy to share your verified student profile, portfolio projects, resume, assessment metrics, and contact details with hiring partner companies and prospective employers.
+3. **Revocation of Sharing Consent:** You may revoke consent for hiring partner data sharing at any time by updating your account privacy preferences or contacting support. Revocation will apply to future recruiter disclosures.
+
+---
+
+## 5. Payments, Taxes (GST), & Refunds
 
 1. **Pricing:** Course and workshop pricing will be displayed on the Platform. We reserve the right to modify prices or introduce promotions at any time.
 2. **Goods and Services Tax (GST):** All payments are subject to applicable taxes, including Indian Goods and Services Tax (GST) at the statutory rate (currently 18%), which will be calculated and added to the billing summary before payment.
@@ -43,7 +51,7 @@ Any legal action or proceeding arising under these Terms shall be subject to the
 
 ---
 
-## 5. User Code of Conduct & Academic Integrity
+## 6. User Code of Conduct & Academic Integrity
 
 As an educational platform built on practical, hands-on learning, we expect the highest standards of behavior and academic integrity. You agree NOT to:
 
@@ -54,16 +62,16 @@ As an educational platform built on practical, hands-on learning, we expect the 
 
 ---
 
-## 6. Limitation of Liability
+## 7. Limitation of Liability
 
 1. **"As Is" Basis:** The Platform and its Content are provided on an "as is" and "as available" basis without warranties of any kind, either express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement.
-2. **No Guarantee of Outcome:** While our workshops and courses are designed to teach production-ready skills, we do not guarantee specific employment outcomes, job offers, or salary levels as a result of using the Services.
+2. **No Guarantee of Outcome:** While our workshops and courses are designed to teach production-ready skills and we facilitate hiring partner connections with user consent, we do not guarantee specific employment outcomes, job offers, or salary levels.
 3. **Indirect Damages:** In no event shall DevTrack Academy, its directors, employees, or partners be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues.
 4. **Maximum Liability:** Our aggregate liability for all claims arising out of or related to these Terms shall not exceed the total amount paid by you to DevTrack Academy in the six (6) months preceding the event giving rise to the claim.
 
 ---
 
-## 7. Dispute Resolution
+## 8. Dispute Resolution
 
 In the event of any dispute, controversy, or claim arising out of or relating to these Terms, including the existence, validity, interpretation, performance, breach, or termination thereof, the parties shall first attempt to resolve the issue amicably.
 
@@ -74,7 +82,7 @@ If amicable resolution is not reached within thirty (30) days:
 
 ---
 
-## 8. Grievance Redressal Officer
+## 9. Grievance Redressal Officer
 
 In accordance with the Information Technology Act, 2000 and the Consumer Protection (E-Commerce) Rules, 2020, if you have any questions, feedback, complaints, or grievances regarding the Services, please contact our designated Grievance Officer:
 
@@ -85,6 +93,6 @@ In accordance with the Information Technology Act, 2000 and the Consumer Protect
 
 ---
 
-## 9. Term & Termination
+## 10. Term & Termination
 
 We reserve the right to suspend or terminate your account and restrict your access to the Platform, without notice, if we believe you have breached these Terms or engaged in conduct that harms the Platform, its users, or our business interests. You may close your account at any time by contacting us, subject to any outstanding payment obligations.

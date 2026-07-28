@@ -66,25 +66,18 @@ export default function Stats() {
       color: 'bg-sky',
     },
     {
-      value: 10,
-      suffix: '+',
-      label: 'Real Projects',
-      desc: 'Deploy full-stack applications to your custom portfolio.',
+      value: 100,
+      suffix: '%',
+      label: 'AI Interview Prep',
+      desc: 'Simulate live technical & system design interviews with AI.',
       color: 'bg-coral',
-    },
-    {
-      value: 30,
-      suffix: '',
-      label: 'Limited Batches',
-      desc: 'Max 30 seats per workshop to ensure personal mentoring.',
-      color: 'bg-[#FFE066]',
     },
     {
       value: 100,
       suffix: '%',
       label: 'Portfolio Focused',
       desc: 'We construct assets that make recruiters notice you.',
-      color: 'bg-white',
+      color: 'bg-[#FFE066]',
     },
   ];
 
@@ -101,18 +94,20 @@ export default function Stats() {
             viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 0.5, delay: idx * 0.1 }}
             key={idx}
-            className={`bg-white border-4 border-deep-navy p-6 md:p-8 rounded-[24px] shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] transition-all`}
+            className={`bg-white border-4 border-deep-navy p-6 md:p-8 rounded-[24px] shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] transition-all flex flex-col justify-between`}
           >
-            <div className="flex items-baseline gap-2 mb-2">
-              <span className={`w-3 h-3 rounded-full ${stat.color} border border-deep-navy inline-block`} />
-              <h3 className="font-space font-black text-5xl md:text-6xl text-deep-navy">
-                <Counter end={stat.value} suffix={stat.suffix} />
-              </h3>
+            <div>
+              <div className="flex items-baseline gap-2 mb-2">
+                <span className={`w-3 h-3 rounded-full ${stat.color} border border-deep-navy inline-block`} />
+                <h3 className="font-space font-black text-5xl md:text-6xl text-deep-navy">
+                  <Counter end={stat.value} suffix={stat.suffix} />
+                </h3>
+              </div>
+              <h4 className="font-space font-black text-xl text-deep-navy mb-1 uppercase tracking-tight">
+                {stat.label}
+              </h4>
             </div>
-            <h4 className="font-space font-black text-xl text-deep-navy mb-1 uppercase tracking-tight">
-              {stat.label}
-            </h4>
-            <p className="font-sans font-medium text-sm text-deep-navy/75">
+            <p className="font-sans font-medium text-sm text-deep-navy/75 mt-2">
               {stat.desc}
             </p>
           </motion.div>

@@ -1,14 +1,16 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Twitter, Linkedin, Instagram, ArrowUpRight, Heart } from 'lucide-react';
+import { Twitter, Linkedin, Instagram, ArrowUpRight, Heart, Mail, Sparkles } from 'lucide-react';
 import Magnetic from './Magnetic';
 import LegalModal from './LegalModal';
 
-// Custom SVG Icons for Discord and Reddit
+interface FooterProps {
+  onOpenModal?: (type: 'courses' | 'interviews') => void;
+}
+
 const DiscordIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 127.14 96.36" className={className} fill="currentColor">
     <path d="M107.7,8.07A105.15,105.15,0,0,0,77.26,0a77.19,77.19,0,0,0-3.3,6.83A96.67,96.67,0,0,0,53.22,6.83,77.19,77.19,0,0,0,49.88,0,105.15,105.15,0,0,0,19.44,8.07C3.66,31.58-1.86,54.65,1,77.53A105.73,105.73,0,0,0,32,96.36a77.7,77.7,0,0,0,6.63-10.85,68.43,68.43,0,0,1-10.4-5c.88-.65,1.72-1.34,2.51-2a75.58,75.58,0,0,0,72.6,0c.79.71,1.63,1.4,2.51,2a68.43,68.43,0,0,1-10.4,5,77.7,77.7,0,0,0,6.63,10.85,105.73,105.73,0,0,0,31.06-18.83C129.54,49.78,123.63,26.9,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53S36.18,40.36,42.45,40.36,53.83,46,53.83,53,48.72,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.24,60,73.24,53S78.41,40.36,84.69,40.36,96.07,46,96.07,53,91,65.69,84.69,65.69Z" />
@@ -21,7 +23,7 @@ const RedditIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-export default function Footer() {
+export default function Footer({ onOpenModal }: FooterProps) {
   const currentYear = new Date().getFullYear();
   const [activeLegalTab, setActiveLegalTab] = useState<'terms' | 'privacy' | 'refund' | null>(null);
 
@@ -33,28 +35,16 @@ export default function Footer() {
     { icon: <Twitter className="w-5 h-5" />, href: 'https://x.com/DevTrackAcademy', name: 'Twitter' },
   ];
 
-  const quickLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Workshops', href: 'https://workshop.devtrackacademy.com' },
-    { name: 'Courses', href: '#courses' },
-    { name: 'About', href: '#about' },
-  ];
-
-  const legalLinks = [
-    { name: 'Terms of Service', href: '#' },
-    { name: 'Privacy Policy', href: '#' },
-  ];
-
   return (
-    <footer className="relative bg-deep-navy text-white rounded-t-[40px] border-t-4 border-deep-navy pt-16 pb-8 px-6 mt-auto overflow-hidden">
+    <footer className="relative bg-deep-navy text-white rounded-t-[40px] border-t-4 border-deep-navy pt-16 pb-8 px-6 mt-auto overflow-hidden font-space">
       {/* Decorative dot grid */}
       <div className="absolute inset-0 opacity-5 bg-[radial-gradient(#FFF8F0_1.5px,transparent_1.5px)] bg-[size:20px_20px] rounded-t-[40px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10 grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b-2 border-white/10">
         
-        {/* Brand Column (Grid span 5) */}
+        {/* Brand Column */}
         <div className="md:col-span-5 flex flex-col items-start">
-          <Link href="#home" className="flex items-center gap-3 group mb-6">
+          <Link href="/" className="flex items-center gap-3 group mb-6">
             <div className="relative w-12 h-12 bg-white border-2 border-deep-navy shadow-[2px_2px_0px_0px_#1B1F3B] rounded-xl flex items-center justify-center p-1">
               <Image
                 src="/logo.png"
@@ -68,9 +58,22 @@ export default function Footer() {
               DevTrack <span className="text-primary group-hover:text-coral transition-colors duration-200">Academy</span>
             </span>
           </Link>
-          <p className="font-sans font-medium text-sm text-white/70 max-w-sm mb-8 leading-relaxed">
+          <p className="font-sans font-medium text-sm text-white/70 max-w-sm mb-6 leading-relaxed">
             Hands-on development education designed to skip theoretical tutorial hell and help engineers deploy production-grade software portfolios.
           </p>
+
+          {/* Direct Email Callout Box */}
+          <div className="bg-white/10 border-2 border-white/20 p-4 rounded-2xl w-full max-w-sm mb-6 space-y-2 text-xs">
+            <div className="flex items-center gap-1.5 text-mint font-bold uppercase tracking-wider text-[10px]">
+              <Mail className="w-3.5 h-3.5" /> Reach Out Directly
+            </div>
+            <p className="text-white/80 font-sans font-medium">
+              Founder: <a href="mailto:founder@devtrackacademy.com" className="font-mono text-mint hover:underline font-bold">founder@devtrackacademy.com</a>
+            </p>
+            <p className="text-white/80 font-sans font-medium">
+              Support: <a href="mailto:support@devtrackacademy.com" className="font-mono text-sky hover:underline font-bold">support@devtrackacademy.com</a>
+            </p>
+          </div>
           
           {/* Social Icons */}
           <div className="flex gap-4">
@@ -80,7 +83,7 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-xl border-2 border-white bg-white/5 flex items-center justify-center text-white hover:bg-white hover:text-deep-navy transition-all duration-200 shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(255,255,255,1)]"
+                  className="w-10 h-10 rounded-xl border-2 border-white bg-white/5 flex items-center justify-center text-white hover:bg-white hover:text-deep-navy transition-all duration-200 shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] hover:translate-x-[-1px] hover:translate-y-[-1px]"
                   aria-label={social.name}
                 >
                   {social.icon}
@@ -90,62 +93,93 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Quick Links Column (Grid span 3) */}
+        {/* Quick Links Column */}
         <div className="md:col-span-3">
           <h4 className="font-space font-black text-lg uppercase text-white/40 tracking-wider mb-6">
-            Academy Links
+            Academy Tracks
           </h4>
-          <ul className="flex flex-col gap-4 font-space">
-            {quickLinks.map((link) => (
-              <li key={link.name}>
-                <a
-                  href={link.href}
-                  target={link.href.startsWith('http') ? '_blank' : undefined}
-                  rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="text-base font-bold text-white/80 hover:text-primary transition-colors flex items-center gap-1 group"
-                >
-                  {link.name}
-                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-                </a>
-              </li>
-            ))}
+          <ul className="flex flex-col gap-3 font-space text-sm font-bold">
+            <li>
+              <Link href="/" className="text-white/80 hover:text-primary transition-colors">
+                Home
+              </Link>
+            </li>
+            <li>
+              <a
+                href="https://workshop.devtrackacademy.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/80 hover:text-primary transition-colors flex items-center gap-1.5"
+              >
+                Workshops <span className="bg-mint text-deep-navy text-[9px] font-black uppercase px-1.5 py-0.5 rounded">Live</span>
+              </a>
+            </li>
+            <li>
+              <button
+                onClick={() => onOpenModal && onOpenModal('courses')}
+                className="text-white/80 hover:text-primary transition-colors text-left flex items-center gap-1.5 cursor-pointer"
+              >
+                Courses <span className="bg-sky text-deep-navy text-[9px] font-black uppercase px-1.5 py-0.5 rounded">Aug 30</span>
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => onOpenModal && onOpenModal('interviews')}
+                className="text-white/80 hover:text-primary transition-colors text-left flex items-center gap-1.5 cursor-pointer"
+              >
+                AI Interview Prep <span className="bg-coral text-white text-[9px] font-black uppercase px-1.5 py-0.5 rounded">Aug 30</span>
+              </button>
+            </li>
+            <li>
+              <Link href="/about" className="text-white/80 hover:text-primary transition-colors">
+                About Us
+              </Link>
+            </li>
+            <li>
+              <a href="mailto:support@devtrackacademy.com" className="text-white/80 hover:text-primary transition-colors">
+                Contact Support
+              </a>
+            </li>
           </ul>
         </div>
 
-        {/* Legal Column (Grid span 4) */}
+        {/* Legal Column */}
         <div className="md:col-span-4">
           <h4 className="font-space font-black text-lg uppercase text-white/40 tracking-wider mb-6">
-            Information
+            Legal & Policy
           </h4>
-          <ul className="flex flex-col gap-4 font-space mb-8">
-            {legalLinks.map((link) => (
-              <li key={link.name}>
-                <button
-                  onClick={(e) => {
-                    e.preventDefault();
-                    if (link.name === 'Terms of Service') setActiveLegalTab('terms');
-                    else if (link.name === 'Privacy Policy') setActiveLegalTab('privacy');
-                    else if (link.name === 'Refund Policy') setActiveLegalTab('refund');
-                  }}
-                  className="text-base font-bold text-white/80 hover:text-primary transition-colors cursor-pointer text-left focus:outline-none"
-                >
-                  {link.name}
-                </button>
-              </li>
-            ))}
+          <ul className="flex flex-col gap-3 font-space text-sm font-bold mb-8">
+            <li>
+              <Link href="/terms" className="text-white/80 hover:text-primary transition-colors">
+                Terms of Service
+              </Link>
+            </li>
+            <li>
+              <Link href="/privacy" className="text-white/80 hover:text-primary transition-colors">
+                Privacy Policy (DPDP Act 2023)
+              </Link>
+            </li>
+            <li>
+              <button
+                onClick={() => setActiveLegalTab('refund')}
+                className="text-white/80 hover:text-primary transition-colors text-left cursor-pointer"
+              >
+                Refund Policy
+              </button>
+            </li>
           </ul>
           
           <div className="bg-white/5 border-2 border-white/10 p-4 rounded-2xl flex items-center gap-3">
-            <Heart className="w-5 h-5 text-coral fill-coral" />
+            <Heart className="w-5 h-5 text-coral fill-coral shrink-0" />
             <span className="font-sans font-semibold text-xs text-white/60">
-              Handcrafted for developers & builders.
+              Handcrafted for developers & future engineers.
             </span>
           </div>
         </div>
 
       </div>
 
-      {/* Bottom Panel */}
+      {/* Bottom Copyright */}
       <div className="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
         <p className="font-space font-bold text-xs text-white/50">
           &copy; {currentYear} DevTrack <span className="text-primary">Academy</span>. All rights reserved.

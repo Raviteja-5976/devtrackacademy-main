@@ -1,7 +1,11 @@
+'use client';
+
+import { useState } from 'react';
 import LoadingScreen from "@/components/LoadingScreen";
 import ScrollProgress from "@/components/ScrollProgress";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import PlatformOverview from "@/components/PlatformOverview";
 import Stats from "@/components/Stats";
 import About from "@/components/About";
 import Ecosystem from "@/components/Ecosystem";
@@ -14,8 +18,19 @@ import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import ComingSoonModal from "@/components/ComingSoonModal";
 
 export default function Home() {
+  const [modalType, setModalType] = useState<'courses' | 'interviews' | null>(null);
+
+  const handleOpenModal = (type: 'courses' | 'interviews') => {
+    setModalType(type);
+  };
+
+  const handleCloseModal = () => {
+    setModalType(null);
+  };
+
   return (
     <>
       {/* Utility Utilities */}
@@ -23,14 +38,15 @@ export default function Home() {
       <ScrollProgress />
       
       {/* Header Layer */}
-      <Navbar />
+      <Navbar onOpenModal={handleOpenModal} />
 
       {/* Main Structural Blocks */}
       <main className="flex-grow">
         <Hero />
+        <PlatformOverview onOpenModal={handleOpenModal} />
         <Stats />
+        <Ecosystem onOpenModal={handleOpenModal} />
         <About />
-        <Ecosystem />
         <WhyPracticalWins />
         <LearningJourney />
         <Specializations />
@@ -42,7 +58,14 @@ export default function Home() {
       </main>
 
       {/* Footer Block */}
-      <Footer />
+      <Footer onOpenModal={handleOpenModal} />
+
+      {/* Coming Soon Modal for Courses & AI Interview Prep */}
+      <ComingSoonModal
+        isOpen={modalType !== null}
+        type={modalType}
+        onClose={handleCloseModal}
+      />
     </>
   );
 }
