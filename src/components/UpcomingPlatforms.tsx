@@ -28,10 +28,17 @@ export default function UpcomingPlatforms() {
       color: 'bg-mint',
     },
     {
+      title: 'AI Interview Prep',
+      desc: 'AI-driven mock interviews, DSA practice with complexity analysis, system design rounds, and instant scorecards.',
+      status: 'Active',
+      date: 'Launched',
+      color: 'bg-[#FFE066]',
+    },
+    {
       title: 'Learning Platform',
       desc: 'Self-paced modules, AI-assisted code environments, custom dashboard tracking, and video guides.',
       status: 'Coming Soon',
-      date: 'August 8, 2026',
+      date: 'Coming Soon',
       color: 'bg-sky',
     },
     {
@@ -143,7 +150,7 @@ export default function UpcomingPlatforms() {
         </div>
 
         {/* Roadmap Steps */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20 relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 mb-20 relative">
           
           {roadmapItems.map((item, idx) => (
             <motion.div
@@ -179,7 +186,7 @@ export default function UpcomingPlatforms() {
 
               {/* Bottom arrow connector indicators (desktop only) */}
               {idx < roadmapItems.length - 1 && (
-                <div className="absolute top-1/2 -right-6 -translate-y-1/2 z-20 bg-white border-2 border-deep-navy p-1.5 rounded-full shadow-[2px_2px_0px_0px_#1B1F3B] hidden lg:block">
+                <div className="absolute top-1/2 -right-6 -translate-y-1/2 z-20 bg-white border-2 border-deep-navy p-1.5 rounded-full shadow-[2px_2px_0px_0px_#1B1F3B] hidden xl:block">
                   <ArrowRight className="w-4 h-4 text-deep-navy" />
                 </div>
               )}

@@ -5,7 +5,7 @@ import { HelpCircle, Target, Radio, Rocket, ArrowRight, CheckCircle2, Sparkles, 
 import Magnetic from './Magnetic';
 
 interface PlatformOverviewProps {
-  onOpenModal?: (type: 'courses' | 'interviews') => void;
+  onOpenModal?: (type: 'courses') => void;
 }
 
 export default function PlatformOverview({ onOpenModal }: PlatformOverviewProps) {
@@ -41,13 +41,15 @@ export default function PlatformOverview({ onOpenModal }: PlatformOverviewProps)
       badge: '🟢 LIVE NOW',
       badgeColor: 'bg-mint text-deep-navy',
       content:
-        'Our Workshop Platform is LIVE! Join active cohorts where mentors lead live interactive sessions, assign real project tasks, review student code pushes, and guide students through building and deploying complete applications.',
+        'Our Workshop Platform and our AI Interview Prep platform are both LIVE! Join active cohorts where mentors lead live interactive sessions and review your code pushes, then sharpen your technical interviewing with AI-driven mock interviews, DSA drills, and system design rounds.',
       actionText: 'Explore Live Workshops',
       actionHref: 'https://workshop.devtrackacademy.com',
+      secondaryActionText: 'Start AI Interview Prep',
+      secondaryActionHref: 'https://interview.devtrackacademy.com/',
       isExternal: true,
       points: [
         'Live 4-Session project bootcamps',
-        'Direct mentor code reviews & feedback',
+        'AI mock interviews, DSA & system design rounds',
         'Deploy custom portfolios to live URLs',
       ],
     },
@@ -55,16 +57,16 @@ export default function PlatformOverview({ onOpenModal }: PlatformOverviewProps)
       question: 'What is coming next?',
       icon: <Rocket className="w-8 h-8 text-deep-navy" />,
       color: 'bg-[#FFE066]',
-      badge: 'Coming Aug 30',
+      badge: 'Coming Soon',
       badgeColor: 'bg-coral text-white',
       content:
-        'We are launching our Self-Paced Courses platform and AI Interview Prep engine on August 30, 2026. Features include interactive browser code playgrounds, Gemini AI coding assistants, system design simulations, and voice/text AI mock interviews.',
+        'Our Self-Paced Courses platform is in active development. It will bring interactive browser code playgrounds, Gemini AI coding assistants, and structured project tracks you can work through on your own schedule. No launch date yet—join the waitlist and we will tell you the moment it opens.',
       actionText: 'Preview & Get Early Access',
-      modalType: 'interviews' as const,
+      modalType: 'courses' as const,
       points: [
         'Self-Paced Courses with integrated IDE',
-        'AI Technical Mock Interviews & DSA Engine',
-        'System Design & Architecture Simulations',
+        'Gemini AI copilot for instant code debugging',
+        'Verified portfolio certification on completion',
       ],
     },
   ];
@@ -155,6 +157,19 @@ export default function PlatformOverview({ onOpenModal }: PlatformOverviewProps)
                         <ArrowRight className="w-4 h-4" />
                       </a>
                     </Magnetic>
+                    {card.secondaryActionHref && (
+                      <Magnetic>
+                        <a
+                          href={card.secondaryActionHref}
+                          target={card.isExternal ? '_blank' : undefined}
+                          rel={card.isExternal ? 'noopener noreferrer' : undefined}
+                          className="neo-btn-primary bg-mint text-deep-navy text-sm font-black px-6 py-3 flex items-center justify-center gap-2 w-full shadow-[3px_3px_0px_0px_#1B1F3B] mt-3"
+                        >
+                          {card.secondaryActionText}
+                          <ArrowRight className="w-4 h-4" />
+                        </a>
+                      </Magnetic>
+                    )}
                   </div>
                 )}
 

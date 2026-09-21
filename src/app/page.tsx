@@ -21,9 +21,9 @@ import Footer from "@/components/Footer";
 import ComingSoonModal from "@/components/ComingSoonModal";
 
 export default function Home() {
-  const [modalType, setModalType] = useState<'courses' | 'interviews' | null>(null);
+  const [modalType, setModalType] = useState<'courses' | null>(null);
 
-  const handleOpenModal = (type: 'courses' | 'interviews') => {
+  const handleOpenModal = (type: 'courses') => {
     setModalType(type);
   };
 
@@ -60,7 +60,7 @@ export default function Home() {
       {/* Footer Block */}
       <Footer onOpenModal={handleOpenModal} />
 
-      {/* Coming Soon Modal for Courses & AI Interview Prep */}
+      {/* Coming Soon Modal for Self-Paced Courses */}
       <ComingSoonModal
         isOpen={modalType !== null}
         type={modalType}

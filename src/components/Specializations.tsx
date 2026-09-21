@@ -41,7 +41,7 @@ export default function Specializations() {
         >
           {/* Floating Sticker */}
           <div className="absolute -top-4 -right-4 bg-coral text-white border-4 border-deep-navy rounded-full px-4 py-2 font-space font-black text-sm uppercase rotate-[12deg] shadow-[3px_3px_0px_0px_#1B1F3B]">
-            Aug 8, 2026 📅
+            Coming Soon 📅
           </div>
 
           <div className="bg-sky border-4 border-deep-navy p-4 rounded-2xl shadow-[3px_3px_0px_0px_#1B1F3B] mb-8 text-deep-navy">
@@ -59,7 +59,7 @@ export default function Specializations() {
           
           <div className="inline-flex items-center gap-2 bg-mint/20 border-2 border-mint rounded-2xl px-6 py-3 font-space font-extrabold text-sm text-deep-navy shadow-[2px_2px_0px_0px_#1B1F3B]">
             <Calendar className="w-4 h-4 text-deep-navy" />
-            Launching August 8, 2026
+            Launching Soon
           </div>
         </motion.div>
       </div>

@@ -8,7 +8,7 @@ import Magnetic from './Magnetic';
 import LegalModal from './LegalModal';
 
 interface FooterProps {
-  onOpenModal?: (type: 'courses' | 'interviews') => void;
+  onOpenModal?: (type: 'courses') => void;
 }
 
 const DiscordIcon = ({ className }: { className?: string }) => (
@@ -115,19 +115,21 @@ export default function Footer({ onOpenModal }: FooterProps) {
               </a>
             </li>
             <li>
+              <a
+                href="https://interview.devtrackacademy.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/80 hover:text-primary transition-colors flex items-center gap-1.5"
+              >
+                AI Interview Prep <span className="bg-mint text-deep-navy text-[9px] font-black uppercase px-1.5 py-0.5 rounded">Live</span>
+              </a>
+            </li>
+            <li>
               <button
                 onClick={() => onOpenModal && onOpenModal('courses')}
                 className="text-white/80 hover:text-primary transition-colors text-left flex items-center gap-1.5 cursor-pointer"
               >
-                Courses <span className="bg-sky text-deep-navy text-[9px] font-black uppercase px-1.5 py-0.5 rounded">Aug 30</span>
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => onOpenModal && onOpenModal('interviews')}
-                className="text-white/80 hover:text-primary transition-colors text-left flex items-center gap-1.5 cursor-pointer"
-              >
-                AI Interview Prep <span className="bg-coral text-white text-[9px] font-black uppercase px-1.5 py-0.5 rounded">Aug 30</span>
+                Courses <span className="bg-sky text-deep-navy text-[9px] font-black uppercase px-1.5 py-0.5 rounded">Soon</span>
               </button>
             </li>
             <li>

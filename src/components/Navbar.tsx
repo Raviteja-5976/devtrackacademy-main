@@ -8,7 +8,7 @@ import { Menu, X, ArrowUpRight, Sparkles, Mail } from 'lucide-react';
 import Magnetic from './Magnetic';
 
 interface NavbarProps {
-  onOpenModal?: (type: 'courses' | 'interviews') => void;
+  onOpenModal?: (type: 'courses') => void;
 }
 
 export default function Navbar({ onOpenModal }: NavbarProps) {
@@ -31,13 +31,6 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
     if (onOpenModal) {
       e.preventDefault();
       onOpenModal('courses');
-    }
-  };
-
-  const handleInterviewsClick = (e: React.MouseEvent) => {
-    if (onOpenModal) {
-      e.preventDefault();
-      onOpenModal('interviews');
     }
   };
 
@@ -95,23 +88,25 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
               </span>
             </a>
 
+            <a
+              href="https://interview.devtrackacademy.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative text-base font-bold text-deep-navy hover:text-primary transition-colors duration-200 group py-1 flex items-center gap-1"
+            >
+              AI Interview Prep
+              <span className="bg-mint text-deep-navy text-[9px] font-black uppercase px-1.5 py-0.5 rounded border border-deep-navy shadow-[1px_1px_0px_0px_#1B1F3B]">
+                Live
+              </span>
+            </a>
+
             <button
               onClick={handleCoursesClick}
               className="relative text-base font-bold text-deep-navy hover:text-primary transition-colors duration-200 group py-1 flex items-center gap-1 cursor-pointer"
             >
               Courses
               <span className="bg-sky text-deep-navy text-[9px] font-black uppercase px-1.5 py-0.5 rounded border border-deep-navy shadow-[1px_1px_0px_0px_#1B1F3B]">
-                Aug 30
-              </span>
-            </button>
-
-            <button
-              onClick={handleInterviewsClick}
-              className="relative text-base font-bold text-deep-navy hover:text-primary transition-colors duration-200 group py-1 flex items-center gap-1 cursor-pointer"
-            >
-              AI Interview Prep
-              <span className="bg-coral text-white text-[9px] font-black uppercase px-1.5 py-0.5 rounded border border-deep-navy shadow-[1px_1px_0px_0px_#1B1F3B]">
-                Aug 30
+                Soon
               </span>
             </button>
 
@@ -181,6 +176,15 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
               >
                 Workshops <span className="bg-mint text-xs px-2 py-0.5 rounded border border-deep-navy">Live</span>
               </a>
+              <a
+                href="https://interview.devtrackacademy.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-2xl font-extrabold text-deep-navy hover:text-primary flex items-center justify-center gap-2"
+              >
+                AI Interview Prep <span className="bg-mint text-xs px-2 py-0.5 rounded border border-deep-navy">Live</span>
+              </a>
               <button
                 onClick={(e) => {
                   setMobileMenuOpen(false);
@@ -188,16 +192,7 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
                 }}
                 className="text-2xl font-extrabold text-deep-navy hover:text-primary flex items-center justify-center gap-2"
               >
-                Courses <span className="bg-sky text-xs px-2 py-0.5 rounded border border-deep-navy">Aug 30</span>
-              </button>
-              <button
-                onClick={(e) => {
-                  setMobileMenuOpen(false);
-                  handleInterviewsClick(e);
-                }}
-                className="text-2xl font-extrabold text-deep-navy hover:text-primary flex items-center justify-center gap-2"
-              >
-                AI Interview Prep <span className="bg-coral text-white text-xs px-2 py-0.5 rounded border border-deep-navy">Aug 30</span>
+                Courses <span className="bg-sky text-xs px-2 py-0.5 rounded border border-deep-navy">Soon</span>
               </button>
               <Link
                 href="/about"

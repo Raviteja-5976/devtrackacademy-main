@@ -2,50 +2,33 @@
 
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Sparkles, Bot, BookOpen, ArrowRight, CheckCircle2, Calendar } from 'lucide-react';
+import { X, Sparkles, BookOpen, ArrowRight, CheckCircle2, Calendar } from 'lucide-react';
 import Magnetic from './Magnetic';
 import Link from 'next/link';
 
 interface ComingSoonModalProps {
   isOpen: boolean;
-  type: 'courses' | 'interviews' | null;
+  type: 'courses' | null;
   onClose: () => void;
 }
 
 export default function ComingSoonModal({ isOpen, type, onClose }: ComingSoonModalProps) {
   if (!isOpen || !type) return null;
 
-  const isCourse = type === 'courses';
-
-  const details = isCourse
-    ? {
-        title: 'Self-Paced Courses',
-        badge: 'Interactive Learning Platform',
-        icon: <BookOpen className="w-8 h-8 text-deep-navy" />,
-        color: 'bg-sky',
-        description:
-          'Comprehensive self-paced video modules, integrated browser code playground, and real-time AI coding assistance. Build industrial-grade fullstack apps on your schedule.',
-        features: [
-          'Interactive browser-based code workspace',
-          'Gemini AI copilot for instant code debugging',
-          'Comprehensive fullstack & backend tracks',
-          'Verified portfolio certification upon completion',
-        ],
-      }
-    : {
-        title: 'AI Interview Prep',
-        badge: 'Mock Interview & DSA Engine',
-        icon: <Bot className="w-8 h-8 text-deep-navy" />,
-        color: 'bg-mint',
-        description:
-          'Simulate real-time technical interviews with an AI interviewer. Practice Data Structures & Algorithms, System Design scenarios, and behavioral questions with instant feedback.',
-        features: [
-          'Live AI voice & text technical mock interviews',
-          'System Design architecture board evaluation',
-          'DSA problem-solving with complexity analysis',
-          'Personalized scorecard & weakness breakdown',
-        ],
-      };
+  const details = {
+    title: 'Self-Paced Courses',
+    badge: 'Interactive Learning Platform',
+    icon: <BookOpen className="w-8 h-8 text-deep-navy" />,
+    color: 'bg-sky',
+    description:
+      'Comprehensive self-paced video modules, integrated browser code playground, and real-time AI coding assistance. Build industrial-grade fullstack apps on your schedule.',
+    features: [
+      'Interactive browser-based code workspace',
+      'Gemini AI copilot for instant code debugging',
+      'Comprehensive fullstack & backend tracks',
+      'Verified portfolio certification upon completion',
+    ],
+  };
 
   return (
     <AnimatePresence>
@@ -71,10 +54,10 @@ export default function ComingSoonModal({ isOpen, type, onClose }: ComingSoonMod
           <div className="bg-coral text-white border-b-4 border-deep-navy px-6 py-2.5 flex items-center justify-between font-black text-xs uppercase tracking-wider">
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4 animate-bounce" />
-              <span>Coming soon by Aug 30</span>
+              <span>Coming Soon</span>
             </div>
             <span className="bg-white text-deep-navy px-2 py-0.5 rounded border border-deep-navy font-extrabold text-[10px]">
-              August 30, 2026
+              In Development
             </span>
           </div>
 
@@ -128,11 +111,11 @@ export default function ComingSoonModal({ isOpen, type, onClose }: ComingSoonMod
               <div className="flex items-center justify-center gap-2 mb-2">
                 <Sparkles className="w-5 h-5 text-deep-navy" />
                 <h3 className="font-black text-lg md:text-xl text-deep-navy uppercase">
-                  Launching Aug 30, 2026!
+                  Launching Soon!
                 </h3>
               </div>
               <p className="font-sans font-semibold text-xs md:text-sm text-deep-navy/80 max-w-md mx-auto mb-6">
-                Join our ecosystem waitlist to claim <strong>50% off launch pricing</strong> and receive immediate early access invites.
+                We are not announcing a launch date yet. Join our ecosystem waitlist to claim <strong>50% off launch pricing</strong> and be the first to know when it goes live.
               </p>
 
               <div className="flex justify-center">

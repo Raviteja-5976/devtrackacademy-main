@@ -5,7 +5,7 @@ import { Monitor, Laptop, Users, Bot, Code, Play, ArrowRight, Sparkles, Award, V
 import Magnetic from './Magnetic';
 
 interface EcosystemProps {
-  onOpenModal?: (type: 'courses' | 'interviews') => void;
+  onOpenModal?: (type: 'courses') => void;
 }
 
 interface FloatingDecorProps {
@@ -58,7 +58,7 @@ export default function Ecosystem({ onOpenModal }: EcosystemProps) {
               Three Power Tracks.
             </h2>
             <p className="font-sans font-semibold text-lg text-deep-navy/70 leading-relaxed">
-              Choose your path to engineering mastery—from live mentor bootcamps to self-paced interactive coding and AI-driven interview preparation.
+              Choose your path to engineering mastery—from live mentor bootcamps to AI-driven interview preparation and self-paced interactive coding.
             </p>
           </motion.div>
         </div>
@@ -146,19 +146,89 @@ export default function Ecosystem({ onOpenModal }: EcosystemProps) {
             </div>
           </motion.div>
 
-          {/* Card 2: Learning Platform (Courses) */}
+          {/* Card 2: AI Interview Prep (LIVE!) */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-50px' }}
             transition={{ type: 'spring', stiffness: 80, damping: 15, delay: 0.1 }}
             whileHover={{ y: -6 }}
+            className="bg-[#FFE066] border-4 border-deep-navy rounded-[36px] p-8 shadow-[8px_8px_0px_0px_#1B1F3B] hover:shadow-[12px_12px_0px_0px_#1B1F3B] flex flex-col justify-between relative overflow-hidden text-deep-navy min-h-[580px]"
+          >
+            <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#1B1F3B_1.5px,transparent_1.5px)] bg-[size:16px_16px] pointer-events-none" />
+
+            <FloatingDecor className="-top-4 -right-4" delay={0.4}>
+              <div className="bg-coral text-white border-4 border-deep-navy p-2.5 rounded-2xl shadow-[3px_3px_0px_0px_#1B1F3B] rotate-12">
+                <Bot className="w-6 h-6" />
+              </div>
+            </FloatingDecor>
+
+            <div className="relative z-10">
+              <div className="flex justify-between items-start mb-6">
+                <span className="bg-mint text-deep-navy border-2 border-deep-navy font-space font-black text-xs uppercase tracking-wider px-3 py-1 rounded-full shadow-[2px_2px_0px_0px_#1B1F3B]">
+                  🟢 LIVE NOW
+                </span>
+                <span className="font-space font-black text-[10px] uppercase text-deep-navy/80 bg-white border border-deep-navy/20 px-2.5 py-1 rounded-lg">
+                  AI Mock Engine
+                </span>
+              </div>
+
+              <h3 className="font-space font-black text-3xl text-deep-navy tracking-tight mb-3">
+                AI Interview Prep
+              </h3>
+              <p className="font-sans font-semibold text-xs sm:text-sm text-deep-navy/85 leading-relaxed mb-6">
+                Simulate high-stakes technical interviews with AI. Practice Data Structures & Algorithms, System Design scenarios, and live voice/text coding evaluations.
+              </p>
+            </div>
+
+            {/* AI Mock Interview Graphic */}
+            <div className="relative w-full h-44 bg-white border-4 border-deep-navy rounded-2xl shadow-[4px_4px_0px_0px_#1B1F3B] p-3 flex flex-col justify-between my-2 z-10 overflow-hidden font-sans">
+              <div className="flex justify-between items-center border-b border-deep-navy/10 pb-1 text-[9px] font-space font-bold">
+                <span className="flex items-center gap-1 text-primary">
+                  <Bot className="w-3.5 h-3.5" /> AI Interviewer Active
+                </span>
+                <span className="bg-mint text-deep-navy px-1.5 py-0.5 rounded text-[7px] border border-deep-navy font-black">
+                  DSA & System Design
+                </span>
+              </div>
+              <div className="bg-brand-bg border border-deep-navy/15 p-2 rounded-xl text-[8px] font-semibold space-y-1">
+                <p className="text-primary font-bold">Q: How would you design a rate limiter for 1M RPM?</p>
+                <p className="text-deep-navy/70">Candidate: I would use a Token Bucket algorithm backed by Redis...</p>
+              </div>
+              <div className="bg-mint/30 border border-mint p-1.5 rounded-lg flex items-center justify-between text-[8px] font-bold text-deep-navy">
+                <span>Scorecard & Feedback Generation</span>
+                <span className="bg-deep-navy text-white px-1.5 py-0.5 rounded text-[7px]">Live</span>
+              </div>
+            </div>
+
+            <div className="mt-6 flex flex-col gap-3 relative z-10">
+              <Magnetic>
+                <a
+                  href="https://interview.devtrackacademy.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="neo-btn-primary bg-coral text-white text-sm font-black px-6 py-3.5 flex items-center justify-center gap-2 shadow-[4px_4px_0px_0px_#1B1F3B] w-full"
+                >
+                  Start AI Interview Prep
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </Magnetic>
+            </div>
+          </motion.div>
+
+          {/* Card 3: Learning Platform (Courses) */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ type: 'spring', stiffness: 80, damping: 15, delay: 0.2 }}
+            whileHover={{ y: -6 }}
             onClick={() => onOpenModal && onOpenModal('courses')}
             className="bg-white border-4 border-deep-navy rounded-[36px] p-8 shadow-[8px_8px_0px_0px_#1B1F3B] hover:shadow-[12px_12px_0px_0px_#1B1F3B] flex flex-col justify-between relative overflow-hidden text-deep-navy cursor-pointer min-h-[580px]"
           >
             <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#1B1F3B_1.5px,transparent_1.5px)] bg-[size:16px_16px] pointer-events-none" />
 
-            <FloatingDecor className="-top-4 -right-4" delay={0.4}>
+            <FloatingDecor className="-top-4 -right-4" delay={0.6}>
               <div className="bg-sky border-4 border-deep-navy p-2.5 rounded-2xl shadow-[3px_3px_0px_0px_#1B1F3B] rotate-[-12deg]">
                 <Video className="w-6 h-6 text-deep-navy" />
               </div>
@@ -167,7 +237,7 @@ export default function Ecosystem({ onOpenModal }: EcosystemProps) {
             <div className="relative z-10">
               <div className="flex justify-between items-start mb-6">
                 <span className="bg-coral text-white border-2 border-deep-navy font-space font-black text-xs uppercase tracking-wider px-3 py-1 rounded-full shadow-[2px_2px_0px_0px_#1B1F3B]">
-                  Coming Aug 30
+                  Coming Soon
                 </span>
                 <span className="font-space font-black text-[10px] uppercase text-deep-navy/70 bg-brand-bg border border-deep-navy/15 px-2.5 py-1 rounded-lg">
                   Self-Paced Stack
@@ -200,7 +270,7 @@ export default function Ecosystem({ onOpenModal }: EcosystemProps) {
               </div>
               <div className="bg-sky/20 border border-deep-navy/15 p-1.5 rounded-lg flex items-center justify-between text-[8px] font-sans font-bold text-deep-navy">
                 <span>Integrated Browser Playground</span>
-                <span className="bg-deep-navy text-white px-1.5 py-0.5 rounded text-[7px]">Aug 30</span>
+                <span className="bg-deep-navy text-white px-1.5 py-0.5 rounded text-[7px]">Soon</span>
               </div>
             </div>
 
@@ -212,77 +282,7 @@ export default function Ecosystem({ onOpenModal }: EcosystemProps) {
                 }}
                 className="neo-btn-primary bg-sky text-deep-navy text-sm font-black px-6 py-3.5 flex items-center justify-center gap-2 shadow-[4px_4px_0px_0px_#1B1F3B] w-full"
               >
-                Coming soon by Aug 30
-                <Sparkles className="w-4 h-4" />
-              </button>
-            </div>
-          </motion.div>
-
-          {/* Card 3: AI Interview Prep */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ type: 'spring', stiffness: 80, damping: 15, delay: 0.2 }}
-            whileHover={{ y: -6 }}
-            onClick={() => onOpenModal && onOpenModal('interviews')}
-            className="bg-[#FFE066] border-4 border-deep-navy rounded-[36px] p-8 shadow-[8px_8px_0px_0px_#1B1F3B] hover:shadow-[12px_12px_0px_0px_#1B1F3B] flex flex-col justify-between relative overflow-hidden text-deep-navy cursor-pointer min-h-[580px]"
-          >
-            <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#1B1F3B_1.5px,transparent_1.5px)] bg-[size:16px_16px] pointer-events-none" />
-
-            <FloatingDecor className="-top-4 -right-4" delay={0.6}>
-              <div className="bg-coral text-white border-4 border-deep-navy p-2.5 rounded-2xl shadow-[3px_3px_0px_0px_#1B1F3B] rotate-12">
-                <Bot className="w-6 h-6" />
-              </div>
-            </FloatingDecor>
-
-            <div className="relative z-10">
-              <div className="flex justify-between items-start mb-6">
-                <span className="bg-coral text-white border-2 border-deep-navy font-space font-black text-xs uppercase tracking-wider px-3 py-1 rounded-full shadow-[2px_2px_0px_0px_#1B1F3B]">
-                  Coming Aug 30
-                </span>
-                <span className="font-space font-black text-[10px] uppercase text-deep-navy/80 bg-white border border-deep-navy/20 px-2.5 py-1 rounded-lg">
-                  AI Mock Engine
-                </span>
-              </div>
-
-              <h3 className="font-space font-black text-3xl text-deep-navy tracking-tight mb-3">
-                AI Interview Prep
-              </h3>
-              <p className="font-sans font-semibold text-xs sm:text-sm text-deep-navy/85 leading-relaxed mb-6">
-                Simulate high-stakes technical interviews with AI. Practice Data Structures & Algorithms, System Design scenarios, and live voice/text coding evaluations.
-              </p>
-            </div>
-
-            {/* AI Mock Interview Graphic */}
-            <div className="relative w-full h-44 bg-white border-4 border-deep-navy rounded-2xl shadow-[4px_4px_0px_0px_#1B1F3B] p-3 flex flex-col justify-between my-2 z-10 overflow-hidden font-sans">
-              <div className="flex justify-between items-center border-b border-deep-navy/10 pb-1 text-[9px] font-space font-bold">
-                <span className="flex items-center gap-1 text-primary">
-                  <Bot className="w-3.5 h-3.5" /> AI Interviewer Active
-                </span>
-                <span className="bg-mint text-deep-navy px-1.5 py-0.5 rounded text-[7px] border border-deep-navy font-black">
-                  DSA & System Design
-                </span>
-              </div>
-              <div className="bg-brand-bg border border-deep-navy/15 p-2 rounded-xl text-[8px] font-semibold space-y-1">
-                <p className="text-primary font-bold">Q: How would you design a rate limiter for 1M RPM?</p>
-                <p className="text-deep-navy/70">Candidate: I would use a Token Bucket algorithm backed by Redis...</p>
-              </div>
-              <div className="bg-mint/30 border border-mint p-1.5 rounded-lg flex items-center justify-between text-[8px] font-bold text-deep-navy">
-                <span>Scorecard & Feedback Generation</span>
-                <span className="bg-deep-navy text-white px-1.5 py-0.5 rounded text-[7px]">Aug 30</span>
-              </div>
-            </div>
-
-            <div className="mt-6 flex flex-col gap-3 relative z-10">
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  onOpenModal && onOpenModal('interviews');
-                }}
-                className="neo-btn-primary bg-coral text-white text-sm font-black px-6 py-3.5 flex items-center justify-center gap-2 shadow-[4px_4px_0px_0px_#1B1F3B] w-full"
-              >
-                Coming soon by Aug 30
+                Coming Soon
                 <Sparkles className="w-4 h-4" />
               </button>
             </div>
