@@ -1,12 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Monitor, Laptop, Users, Bot, Code, Play, ArrowRight, Sparkles, Award, Video, Code2 } from 'lucide-react';
+import { Monitor, Laptop, Users, Bot, Code, Play, ArrowRight, Award, Video, Code2 } from 'lucide-react';
 import Magnetic from './Magnetic';
-
-interface EcosystemProps {
-  onOpenModal?: (type: 'courses') => void;
-}
 
 interface FloatingDecorProps {
   children: React.ReactNode;
@@ -34,7 +30,7 @@ function FloatingDecor({ children, className = '', delay = 0 }: FloatingDecorPro
   );
 }
 
-export default function Ecosystem({ onOpenModal }: EcosystemProps) {
+export default function Ecosystem() {
   return (
     <section id="ecosystem" className="relative py-24 px-6 bg-brand-bg border-t-4 border-deep-navy overflow-hidden">
       {/* Background decoration */}
@@ -223,8 +219,7 @@ export default function Ecosystem({ onOpenModal }: EcosystemProps) {
             viewport={{ once: true, margin: '-50px' }}
             transition={{ type: 'spring', stiffness: 80, damping: 15, delay: 0.2 }}
             whileHover={{ y: -6 }}
-            onClick={() => onOpenModal && onOpenModal('courses')}
-            className="bg-white border-4 border-deep-navy rounded-[36px] p-8 shadow-[8px_8px_0px_0px_#1B1F3B] hover:shadow-[12px_12px_0px_0px_#1B1F3B] flex flex-col justify-between relative overflow-hidden text-deep-navy cursor-pointer min-h-[580px]"
+            className="bg-white border-4 border-deep-navy rounded-[36px] p-8 shadow-[8px_8px_0px_0px_#1B1F3B] hover:shadow-[12px_12px_0px_0px_#1B1F3B] flex flex-col justify-between relative overflow-hidden text-deep-navy min-h-[580px]"
           >
             <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#1B1F3B_1.5px,transparent_1.5px)] bg-[size:16px_16px] pointer-events-none" />
 
@@ -236,8 +231,8 @@ export default function Ecosystem({ onOpenModal }: EcosystemProps) {
 
             <div className="relative z-10">
               <div className="flex justify-between items-start mb-6">
-                <span className="bg-coral text-white border-2 border-deep-navy font-space font-black text-xs uppercase tracking-wider px-3 py-1 rounded-full shadow-[2px_2px_0px_0px_#1B1F3B]">
-                  Coming Soon
+                <span className="bg-mint text-deep-navy border-2 border-deep-navy font-space font-black text-xs uppercase tracking-wider px-3 py-1 rounded-full shadow-[2px_2px_0px_0px_#1B1F3B]">
+                  Live Now
                 </span>
                 <span className="font-space font-black text-[10px] uppercase text-deep-navy/70 bg-brand-bg border border-deep-navy/15 px-2.5 py-1 rounded-lg">
                   Self-Paced Stack
@@ -270,21 +265,22 @@ export default function Ecosystem({ onOpenModal }: EcosystemProps) {
               </div>
               <div className="bg-sky/20 border border-deep-navy/15 p-1.5 rounded-lg flex items-center justify-between text-[8px] font-sans font-bold text-deep-navy">
                 <span>Integrated Browser Playground</span>
-                <span className="bg-deep-navy text-white px-1.5 py-0.5 rounded text-[7px]">Soon</span>
+                <span className="bg-deep-navy text-white px-1.5 py-0.5 rounded text-[7px]">Live</span>
               </div>
             </div>
 
             <div className="mt-6 flex flex-col gap-3 relative z-10">
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  onOpenModal && onOpenModal('courses');
-                }}
-                className="neo-btn-primary bg-sky text-deep-navy text-sm font-black px-6 py-3.5 flex items-center justify-center gap-2 shadow-[4px_4px_0px_0px_#1B1F3B] w-full"
-              >
-                Coming Soon
-                <Sparkles className="w-4 h-4" />
-              </button>
+              <Magnetic>
+                <a
+                  href="https://learn.devtrackacademy.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="neo-btn-primary bg-sky text-deep-navy text-sm font-black px-6 py-3.5 flex items-center justify-center gap-2 shadow-[4px_4px_0px_0px_#1B1F3B] w-full"
+                >
+                  Start Learning
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </Magnetic>
             </div>
           </motion.div>
 

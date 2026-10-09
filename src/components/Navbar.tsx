@@ -7,11 +7,7 @@ import Link from 'next/link';
 import { Menu, X, ArrowUpRight, Sparkles, Mail } from 'lucide-react';
 import Magnetic from './Magnetic';
 
-interface NavbarProps {
-  onOpenModal?: (type: 'courses') => void;
-}
-
-export default function Navbar({ onOpenModal }: NavbarProps) {
+export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -27,12 +23,6 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleCoursesClick = (e: React.MouseEvent) => {
-    if (onOpenModal) {
-      e.preventDefault();
-      onOpenModal('courses');
-    }
-  };
 
   return (
     <>
@@ -100,15 +90,17 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
               </span>
             </a>
 
-            <button
-              onClick={handleCoursesClick}
-              className="relative text-base font-bold text-deep-navy hover:text-primary transition-colors duration-200 group py-1 flex items-center gap-1 cursor-pointer"
+            <a
+              href="https://learn.devtrackacademy.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative text-base font-bold text-deep-navy hover:text-primary transition-colors duration-200 group py-1 flex items-center gap-1"
             >
               Courses
-              <span className="bg-sky text-deep-navy text-[9px] font-black uppercase px-1.5 py-0.5 rounded border border-deep-navy shadow-[1px_1px_0px_0px_#1B1F3B]">
-                Soon
+              <span className="bg-mint text-deep-navy text-[9px] font-black uppercase px-1.5 py-0.5 rounded border border-deep-navy shadow-[1px_1px_0px_0px_#1B1F3B]">
+                Live
               </span>
-            </button>
+            </a>
 
             <Link
               href="/about"
@@ -185,15 +177,15 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
               >
                 AI Interview Prep <span className="bg-mint text-xs px-2 py-0.5 rounded border border-deep-navy">Live</span>
               </a>
-              <button
-                onClick={(e) => {
-                  setMobileMenuOpen(false);
-                  handleCoursesClick(e);
-                }}
+              <a
+                href="https://learn.devtrackacademy.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
                 className="text-2xl font-extrabold text-deep-navy hover:text-primary flex items-center justify-center gap-2"
               >
-                Courses <span className="bg-sky text-xs px-2 py-0.5 rounded border border-deep-navy">Soon</span>
-              </button>
+                Courses <span className="bg-mint text-xs px-2 py-0.5 rounded border border-deep-navy">Live</span>
+              </a>
               <Link
                 href="/about"
                 onClick={() => setMobileMenuOpen(false)}

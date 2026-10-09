@@ -37,8 +37,8 @@ export default function UpcomingPlatforms() {
     {
       title: 'Learning Platform',
       desc: 'Self-paced modules, AI-assisted code environments, custom dashboard tracking, and video guides.',
-      status: 'Coming Soon',
-      date: 'Coming Soon',
+      status: 'Active',
+      date: 'Launched',
       color: 'bg-sky',
     },
     {

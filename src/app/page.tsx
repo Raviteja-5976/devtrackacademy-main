@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import LoadingScreen from "@/components/LoadingScreen";
 import ScrollProgress from "@/components/ScrollProgress";
 import Navbar from "@/components/Navbar";
@@ -18,19 +17,8 @@ import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
-import ComingSoonModal from "@/components/ComingSoonModal";
 
 export default function Home() {
-  const [modalType, setModalType] = useState<'courses' | null>(null);
-
-  const handleOpenModal = (type: 'courses') => {
-    setModalType(type);
-  };
-
-  const handleCloseModal = () => {
-    setModalType(null);
-  };
-
   return (
     <>
       {/* Utility Utilities */}
@@ -38,14 +26,14 @@ export default function Home() {
       <ScrollProgress />
       
       {/* Header Layer */}
-      <Navbar onOpenModal={handleOpenModal} />
+      <Navbar />
 
       {/* Main Structural Blocks */}
       <main className="flex-grow">
         <Hero />
-        <PlatformOverview onOpenModal={handleOpenModal} />
+        <PlatformOverview />
         <Stats />
-        <Ecosystem onOpenModal={handleOpenModal} />
+        <Ecosystem />
         <About />
         <WhyPracticalWins />
         <LearningJourney />
@@ -58,14 +46,7 @@ export default function Home() {
       </main>
 
       {/* Footer Block */}
-      <Footer onOpenModal={handleOpenModal} />
-
-      {/* Coming Soon Modal for Self-Paced Courses */}
-      <ComingSoonModal
-        isOpen={modalType !== null}
-        type={modalType}
-        onClose={handleCloseModal}
-      />
+      <Footer />
     </>
   );
 }

@@ -1,14 +1,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { HelpCircle, Target, Radio, Rocket, ArrowRight, CheckCircle2, Sparkles, Code2, Users, Laptop, Bot } from 'lucide-react';
+import { HelpCircle, Target, Radio, Rocket, ArrowRight, CheckCircle2,Code2, Users, Laptop, Bot } from 'lucide-react';
 import Magnetic from './Magnetic';
 
-interface PlatformOverviewProps {
-  onOpenModal?: (type: 'courses') => void;
-}
-
-export default function PlatformOverview({ onOpenModal }: PlatformOverviewProps) {
+export default function PlatformOverview() {
   const cards = [
     {
       question: 'What is DevTrackAcademy?',
@@ -54,15 +50,16 @@ export default function PlatformOverview({ onOpenModal }: PlatformOverviewProps)
       ],
     },
     {
-      question: 'What is coming next?',
+      question: 'Learn at your own pace?',
       icon: <Rocket className="w-8 h-8 text-deep-navy" />,
       color: 'bg-[#FFE066]',
-      badge: 'Coming Soon',
-      badgeColor: 'bg-coral text-white',
+      badge: '🟢 LIVE NOW',
+      badgeColor: 'bg-mint text-deep-navy',
       content:
-        'Our Self-Paced Courses platform is in active development. It will bring interactive browser code playgrounds, Gemini AI coding assistants, and structured project tracks you can work through on your own schedule. No launch date yet—join the waitlist and we will tell you the moment it opens.',
-      actionText: 'Preview & Get Early Access',
-      modalType: 'courses' as const,
+        'Our Self-Paced Courses platform is LIVE! Work through interactive browser code playgrounds, Gemini AI coding assistants, and structured project tracks on your own schedule.',
+      actionText: 'Start Learning',
+      actionHref: 'https://learn.devtrackacademy.com/',
+      isExternal: true,
       points: [
         'Self-Paced Courses with integrated IDE',
         'Gemini AI copilot for instant code debugging',
@@ -170,18 +167,6 @@ export default function PlatformOverview({ onOpenModal }: PlatformOverviewProps)
                         </a>
                       </Magnetic>
                     )}
-                  </div>
-                )}
-
-                {card.modalType && (
-                  <div className="pt-4 border-t-2 border-deep-navy/10 mt-4">
-                    <button
-                      onClick={() => onOpenModal && onOpenModal(card.modalType!)}
-                      className="neo-btn-primary bg-primary text-white text-sm font-black px-6 py-3 flex items-center justify-center gap-2 w-full shadow-[3px_3px_0px_0px_#1B1F3B] cursor-pointer"
-                    >
-                      {card.actionText}
-                      <Sparkles className="w-4 h-4" />
-                    </button>
                   </div>
                 )}
               </motion.div>
